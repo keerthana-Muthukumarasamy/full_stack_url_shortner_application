@@ -8,6 +8,7 @@ import secrets
 import string
 from fastapi import HTTPException
 from fastapi.responses import RedirectResponse
+from datetime import datetime, timezone
 
 Base.metadata.create_all(bind=engine)
 
@@ -56,6 +57,70 @@ def get_urls(
     )
 
     return urls
+
+
+
+@app.get("/api/analytics")
+def get_analytics(
+    db: Session = Depends(get_db)
+):
+    urls = db.query(models.Url).all()
+
+    total_urls = len(urls)
+
+    total_clicks = sum(
+        url.click_count for url in urls
+    )
+
+    today = datetime.now(timezone.utc).date()
+
+    today_clicks = 0
+
+    click_activity = {}
+    creation_activity = {}
+
+    for url in urls:
+
+        # Count URL creation by date
+        creation_date = url.created_at.date().isoformat()
+
+        if creation_date not in creation_activity:
+            creation_activity[creation_date] = 0
+
+        creation_activity[creation_date] += 1
+
+        # Count clicks by date
+        for event in url.click_events:
+            click_date = event.clicked_at.date().isoformat()
+
+            if click_date == today.isoformat():
+                today_clicks += 1
+
+            if click_date not in click_activity:
+                click_activity[click_date] = 0
+
+            click_activity[click_date] += 1
+
+    all_dates = sorted(
+        set(click_activity) | set(creation_activity)
+    )
+
+    activity = [
+        {
+            "date": date,
+            "clicks": click_activity.get(date, 0),
+            "creations": creation_activity.get(date, 0)
+        }
+        for date in all_dates
+    ]
+
+    return {
+        "total_urls": total_urls,
+        "total_clicks": total_clicks,
+        "today_clicks": today_clicks,
+        "activity": activity
+    }
+
 
 
 @app.get("/{short_code}")
