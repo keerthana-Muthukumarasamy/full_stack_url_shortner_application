@@ -64,19 +64,24 @@ Screenshots were captured during manual testing to verify the implemented functi
 
 ### Backend
 
-- URL creation screenshot
-- URL validation screenshot
-- Redirect screenshot
-- Click count screenshot
+- [URL Creation](screenshots/url_creation.png)
+- [URL Validation](screenshots/url_validation.png)
+- [Redirect Behavior](screenshots/redirect_url.png)
+- [Click Count Increment](screenshots/click_count.png)
 
 ### Frontend
 
-- Main page screenshot
-- Validation screenshot
-- Recent URLs table screenshot
-- URL analytics screenshot
-- Statistics chart screenshot
-- Pagination screenshot
+### Frontend
+
+- [Main Page Rendering](screenshots/full_frontend.png)
+- [Frontend Validation](screenshots/url_validation.png)
+- [Table Rendering](screenshots/table_rendering.png)
+
+### Analytics & Statistics
+
+- [URL Analytics](screenshots/analytics_per_url.png)
+- [Statistics Chart](screenshots/overall_statistics.png)
+- [Pagination](screenshots/full_frontend.png)
 
 ## 5. Test Summary
 
