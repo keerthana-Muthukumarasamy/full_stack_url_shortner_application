@@ -56,22 +56,25 @@ url_shortner/
 - Python 3.x
 - Node.js
 - npm
+- 
+## setup and run
 
-## Running the Backend
-
+## 1. Clone the Repository
+```bash
+git clone https://github.com/keerthana-Muthukumarasamy/full_stack_url_shortner_application.git
+cd full_stack_url_shortner_application
+```
+## Set Up the Backend
 ```bash
 cd backend
-```
-
-Windows PowerShell:
-
-```powershell
 python -m venv venv
-.\venv\Scripts\Activate.ps1
+.\\venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
+```
+## Start the Backend
+```bash
 uvicorn main:app --reload
 ```
-
 Backend:
 
 ```text
@@ -82,6 +85,28 @@ Swagger API documentation:
 
 ```text
 http://127.0.0.1:8000/docs
+```
+## Loading Seed Data
+
+The project includes 10 preloaded shortened URLs with different creation dates, varying click counts, click events for analytics, and enough activity to populate the statistics charts.
+
+open another terminal
+navigate to the project directory:
+
+```bash
+cd full_stack_url_shortner_application
+```
+Navigate into the backend directory and activate the virtual environment:
+
+```bash
+cd backend
+.\venv\Scripts\Activate.ps1
+```
+
+Return to the project root and run : 
+
+```bash
+python seed/seed_data.py
 ```
 
 ## Running the Frontend
@@ -100,21 +125,7 @@ Frontend:
 http://localhost:5173
 ```
 
-## Loading Seed Data
 
-The project includes 10 preloaded shortened URLs with different creation dates, varying click counts, click events for analytics, and enough activity to populate the statistics charts.
-
-From the project root:
-
-```bash
-python seed/seed_data.py
-```
-
-The seed script uses the same SQLite database as the backend:
-
-```text
-backend/url_shortener.db
-```
 
 ## API Endpoints
 
