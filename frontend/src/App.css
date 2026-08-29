@@ -1,0 +1,395 @@
+/* =========================
+   Main Application
+   ========================= */
+
+.app {
+  min-height: 100vh;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #3b6f9d;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+/* =========================
+   URL Shortener Hero
+   ========================= */
+
+.hero {
+  background: #2f5d9b;
+  padding: 55px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero h2 {
+  margin: 0 0 18px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.url-form {
+  display: flex;
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+.url-form input {
+  flex: 1;
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.url-form button {
+  height: 36px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background: #3c86bd;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.url-form button:hover {
+  opacity: 0.9;
+}
+
+.hero > p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: white;
+}
+
+/* =========================
+   Short URL Result
+   ========================= */
+
+.short-result {
+  margin: 20px auto 0;
+  padding: 15px;
+  max-width: 600px;
+  background: white;
+  border-radius: 4px;
+}
+
+.short-result p {
+  margin: 0 0 6px;
+  color: #333;
+  font-size: 13px;
+}
+
+.short-result a {
+  color: #2563eb;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* =========================
+   Recent URLs
+   ========================= */
+
+.recent-urls {
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.recent-urls h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 400;
+  color: #333;
+}
+
+/* =========================
+   Table
+   ========================= */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Column widths */
+
+th:nth-child(1),
+td:nth-child(1) {
+  width: 40%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 30%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 12%;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+  width: 6%;
+}
+
+th:nth-child(5),
+td:nth-child(5) {
+  width: 12%;
+}
+
+/* Long original URLs */
+
+td:first-child {
+  word-break: break-word;
+}
+
+/* Table links */
+
+td a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Short URL + Copy Button
+   ========================= */
+
+.short-url-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.short-url-cell a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.short-url-cell button {
+  flex: 0 0 auto;
+  width: auto;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background: #5cb85c;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.short-url-cell button:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   Analytics / View Button
+   ========================= */
+
+td button {
+  padding: 6px 12px;
+  border: 1px solid #3c86bd;
+  border-radius: 4px;
+  background: white;
+  color: #3c86bd;
+  cursor: pointer;
+}
+
+td button:hover {
+  background: #3c86bd;
+  color: white;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .url-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .url-form input {
+    border-radius: 4px;
+  }
+
+  .url-form button {
+    border-radius: 4px;
+  }
+
+  .recent-urls {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  table {
+    min-width: 800px;
+  }
+}
+
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 7px 14px;
+  border: 1px solid #3c86bd;
+  border-radius: 4px;
+  background: white;
+  color: #3c86bd;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #3c86bd;
+  color: white;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 13px;
+  color: #555;
+}
+
+.statistics {
+  max-width: 1080px;
+  margin: 40px auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  overflow: hidden;
+}
+
+.statistics-header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  background: #f5f5f5;
+}
+
+.statistics-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.chart-container {
+  padding: 20px;
+}
+
+.chart-container h3 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Individual URL Analytics */
+
+.url-analytics {
+  max-width: 1080px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.url-analytics h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.analytics-details p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.url-click-chart {
+  margin-top: 30px;
+}
+
+.url-click-chart h3 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+}
+
+.error-message {
+  margin-top: 10px !important;
+  color: #ffdddd !important;
+  font-size: 13px !important;
+}

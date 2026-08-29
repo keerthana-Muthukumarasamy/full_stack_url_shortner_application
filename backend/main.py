@@ -10,9 +10,18 @@ from fastapi import HTTPException
 from fastapi.responses import RedirectResponse
 from datetime import datetime, timezone
 
+from fastapi.middleware.cors import CORSMiddleware
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def generate_short_code(length: int =6)-> str:
     characters = string.ascii_letters + string.digits
@@ -121,7 +130,31 @@ def get_analytics(
         "activity": activity
     }
 
+@app.get("/api/urls/{id}/analytics")
+def get_url_analytics(id: int, db: Session = Depends(get_db)):
+    url = db.query(models.Url).filter(
+        models.Url.id == id
+    ).first()
 
+    if not url:
+        raise HTTPException(
+            status_code=404,
+            detail="URL not found"
+        )
+
+    return {
+        "id": url.id,
+        "original_url": url.original_url,
+        "short_code": url.short_code,
+        "created_at": url.created_at,
+        "click_count": url.click_count,
+        "clicks": [
+            {
+                "clicked_at": event.clicked_at
+            }
+            for event in url.click_events
+        ]
+    }
 
 @app.get("/{short_code}")
 def redirect_url(
