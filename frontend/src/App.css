@@ -393,3 +393,95 @@ td button:hover {
   color: #ffdddd !important;
   font-size: 13px !important;
 }
+/* Mobile Responsive Design */
+
+@media (max-width: 600px) {
+  .header {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 35px 15px;
+  }
+
+  .hero h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .url-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .url-form input {
+    min-width: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .url-form button {
+    padding: 0 14px;
+    white-space: nowrap;
+  }
+
+  .hero p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .short-result {
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .recent-urls {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .recent-urls h2 {
+    font-size: 20px;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+  .statistics {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .chart-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .url-analytics {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+}

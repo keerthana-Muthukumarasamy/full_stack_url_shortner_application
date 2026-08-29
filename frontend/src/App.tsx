@@ -176,10 +176,12 @@ const clickActivity =
 
         <div className="url-form">
           <input
-            type="text"
-            placeholder="Enter your original URL..."
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
+             id="original-url"
+  name="original-url"
+  type="url"
+  placeholder="Enter your original URL..."
+  value={url}
+  onChange={(e) => setUrl(e.target.value)}
           />
 
           <button type="button" onClick={handleSubmit}>
