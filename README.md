@@ -167,6 +167,12 @@ screenshots/
 | Analytics & Statistics | 3 | 3 | 0 |
 | **Total** | **10** | **10** | **0** |
 
+## Development Time
+
+Approximately **2 days** were spent on development:
+- **Day 1:** Backend development and API implementation
+- **Day 2:** Frontend development, UI integration, analytics, testing, and responsive improvements
+
 ## Assumptions and Tradeoffs
 
 - SQLite is used for simplicity and local development.
