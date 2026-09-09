@@ -103,256 +103,323 @@
   font-size: 14px;
   text-decoration: none;
 }
-
-/* =========================
-   Recent URLs
-   ========================= */
+/* ================================
+   RECENT URLS
+================================ */
 
 .recent-urls {
-  max-width: 1080px;
-  margin: 40px auto;
-  padding: 0 20px;
+  width: 100%;
+  margin-top: 25px;
+  padding: 0 10%;
 }
 
 .recent-urls h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin: 0 0 8px 0;
+  font-size: 18px;
   font-weight: 400;
   color: #333;
 }
 
-/* =========================
-   Table
-   ========================= */
+/* TABLE */
 
-.table-container {
+.url-table-wrapper {
   width: 100%;
   overflow-x: auto;
+  border: 1px solid #ddd;
+  background: #fff;
 }
 
-table {
+.url-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
   table-layout: fixed;
+  font-size: 12px;
+  color: #444;
 }
 
-th,
-td {
-  padding: 12px 10px;
+.url-table th {
+  height: 27px;
+  padding: 5px 7px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
-  vertical-align: middle;
-}
-
-th {
-  background: #f5f5f5;
+  font-size: 11px;
   font-weight: 600;
+  color: #333;
+  background: #fafafa;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #d8d8d8;
 }
 
-/* Column widths */
-
-th:nth-child(1),
-td:nth-child(1) {
-  width: 40%;
+.url-table td {
+  height: 40px;
+  padding: 5px 7px;
+  vertical-align: top;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+.url-table tbody tr:nth-child(odd) td {
+  background: #fff;
 }
 
-th:nth-child(2),
-td:nth-child(2) {
-  width: 30%;
+.url-table tbody tr:nth-child(even) td {
+  background: #f5f5f5;
 }
 
-th:nth-child(3),
-td:nth-child(3) {
-  width: 12%;
+.url-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-th:nth-child(4),
-td:nth-child(4) {
-  width: 6%;
+.url-table th:last-child,
+.url-table td:last-child {
+  border-right: none;
 }
 
-th:nth-child(5),
-td:nth-child(5) {
-  width: 12%;
+/* COLUMN WIDTHS */
+
+.original-column {
+  width: 35%;
 }
 
-/* Long original URLs */
+.short-column {
+  width: 25%;
+}
 
-td:first-child {
+.action-column {
+  width: 5%;
+}
+
+.created-column {
+  width: 19%;
+}
+
+.clicks-column {
+  width: 5%;
+}
+
+.analytics-column {
+  width: 11%;
+}
+
+/* ORIGINAL URL */
+
+.original-url {
+  line-height: 16px;
   word-break: break-word;
 }
 
-/* Table links */
+/* SHORT URL */
 
-td a {
-  color: #2563eb;
-  text-decoration: none;
+.short-url {
+  padding-right: 4px !important;
 }
 
-td a:hover {
+.short-url a {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  color: #3d91ae;
+  text-decoration: none;
+  line-height: 16px;
+  word-break: break-word;
+}
+
+.short-url a:hover {
   text-decoration: underline;
 }
 
-/* =========================
-   Short URL + Copy Button
-   ========================= */
-
-.short-url-cell {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+.short-url-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #4386a0;
 }
 
-.short-url-cell a {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* ACTION BUTTONS */
+
+.action-cell {
+  padding: 5px 3px !important;
+  text-align: center;
+  vertical-align: middle !important;
 }
 
-.short-url-cell button {
-  flex: 0 0 auto;
-  width: auto;
-  padding: 5px 10px;
+.green-action,
+.blue-action {
+  width: 30px;
+  height: 29px;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+
+.green-action {
   background: #5cb85c;
+}
+
+.green-action:hover {
+  background: #4cae4c;
+}
+
+.blue-action {
+  background: #50b7d5;
+}
+
+.blue-action:hover {
+  background: #3eabc9;
+}
+
+/* CREATED DATE */
+
+.created-date {
+  line-height: 16px;
+  word-break: normal;
+}
+
+/* CLICKS */
+
+.click-count {
+  text-align: left;
+  vertical-align: top !important;
+}
+
+/* ANALYTICS */
+
+.analytics-cell {
+  text-align: center;
+  vertical-align: middle !important;
+  padding: 5px 4px !important;
+}
+
+.analytics-button {
+  height: 27px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 2px;
+  background: #337ab7;
   color: white;
-  cursor: pointer;
   font-size: 12px;
-}
-
-.short-url-cell button:hover {
-  opacity: 0.9;
-}
-
-/* =========================
-   Analytics / View Button
-   ========================= */
-
-td button {
-  padding: 6px 12px;
-  border: 1px solid #3c86bd;
-  border-radius: 4px;
-  background: white;
-  color: #3c86bd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-td button:hover {
-  background: #3c86bd;
-  color: white;
+.analytics-button:hover {
+  background: #286090;
 }
 
-/* =========================
-   Responsive Design
-   ========================= */
-
-@media (max-width: 768px) {
-  .header {
-    height: 60px;
-    padding: 0 15px;
-  }
-
-  .header h1 {
-    font-size: 22px;
-  }
-
-  .hero {
-    padding: 40px 15px;
-  }
-
-  .url-form {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .url-form input {
-    border-radius: 4px;
-  }
-
-  .url-form button {
-    border-radius: 4px;
-  }
-
-  .recent-urls {
-    margin: 30px auto;
-    padding: 0 15px;
-  }
-
-  table {
-    min-width: 800px;
-  }
-}
-
-
-/* Pagination */
+/* ================================
+   PAGINATION
+================================ */
 
 .pagination {
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
+  align-items: center;
+  gap: 3px;
+  margin-top: 14px;
 }
 
 .pagination button {
-  padding: 7px 14px;
-  border: 1px solid #3c86bd;
-  border-radius: 4px;
-  background: white;
-  color: #3c86bd;
+  border: 1px solid #ddd;
+  background: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #f3f3f3 100%
+  );
+  color: #428bca;
   cursor: pointer;
 }
 
-.pagination button:hover:not(:disabled) {
-  background: #3c86bd;
-  color: white;
+.pagination-number {
+  width: 32px;
+  height: 28px;
+  font-size: 12px;
+  border-radius: 2px;
+}
+
+.pagination-number:hover {
+  background: #e9e9e9;
+}
+
+.pagination-number.active {
+  background: #f5f5f5;
+  color: #428bca;
+  border-color: #ddd;
+}
+
+.pagination-arrow {
+  width: 29px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.pagination-arrow:not(:disabled):hover {
+  background: #e8e8e8;
 }
 
 .pagination button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  opacity: 0.55;
+  cursor: default;
 }
 
 .pagination span {
   font-size: 13px;
   color: #555;
 }
+/* ================================
+   STATISTICS
+================================ */
+
+.statistics-wrapper {
+  padding: 10px 10%;
+}
 
 .statistics {
-  max-width: 1080px;
-  margin: 40px auto;
-  border: 1px solid #ddd;
+  width: 100%;
+  margin-top: 25px;
+  border: 1px solid #d8d8d8;
   border-radius: 4px;
-  background: white;
+  background: #fff;
   overflow: hidden;
 }
 
 .statistics-header {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  background: #f5f5f5;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  border-bottom: 1px solid #d8d8d8;
 }
 
 .statistics-header h2 {
   margin: 0;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   color: #333;
 }
 
 .chart-container {
-  padding: 20px;
+  width: 100%;
+  padding: 27px 20px 0;
+  box-sizing: border-box;
 }
 
 .chart-container h3 {
-  margin: 0 0 20px;
+  margin: 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
-  color: #555;
+  color: #666;
 }
 
 /* Individual URL Analytics */
@@ -446,6 +513,9 @@ td button:hover {
     width: 100%;
     margin: 30px auto;
     padding: 0 15px;
+    box-sizing: border-box;
+    
+
   }
 
   .recent-urls h2 {
@@ -463,12 +533,16 @@ td button:hover {
 
   .statistics {
     width: 100%;
-    overflow: hidden;
+  max-width: 1180px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
   }
 
   .chart-container {
-    width: 100%;
-    overflow-x: auto;
+     width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   }
 
   .url-analytics {
